@@ -30,7 +30,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Category List</h3>
-                  <div style = "position:relative;left:810px;top:-8px;">
+                  <div style = "position:relative;left:80%;top:-8px;">
                   <a href="{% url 'add-category' %}">
                       <button type="submit" class="btn btn-dark" id="addCategory" >Add Category</button>
                   </a>
@@ -69,8 +69,13 @@
                       <td>{{ obj.desc|safe }}</td>
                       <td>{{ obj.is_active }}</td>
                       <td>
-                          <button type="submit" class="btn btn-warning">Edit</button>
-                          <button type="submit" class="btn btn-danger">Delete</button>
+                          <a href="{% url 'edit-category' obj.pk %}">
+                              <button type="submit" class="btn btn-warning">Edit</button>
+                          </a>
+                          <a href="{% url 'delete-category' obj.pk %}">
+                              <button type="submit" class="btn btn-danger" onclick = "fun();">Delete</button>
+
+                          </a>
                       </td>
                     </tr>
                   {% endfor %}
